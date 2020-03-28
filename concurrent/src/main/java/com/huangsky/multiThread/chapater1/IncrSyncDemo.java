@@ -42,7 +42,8 @@ public class IncrSyncDemo {
     public static void main(String[] args) {
         for(int i = 0; i < 50; i++){
            Thread thread = new Thread(()->{
-                incr();
+               IncrSyncDemo demo = new IncrSyncDemo();
+               demo.incr3();
             });
             thread.start();
 //            try {

@@ -16,7 +16,7 @@ public class CallableDemo implements Callable<String> {
         ExecutorService executorService = Executors.newCachedThreadPool();
         CallableDemo callableDemo = new CallableDemo();
         Future<String> future = executorService.submit(callableDemo);
-        String result = future.get(); //阻塞
+        String result = future.get(); //阻塞,等待返回结果
         System.out.println(result);
         executorService.shutdown();
     }
