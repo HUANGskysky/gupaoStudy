@@ -7,7 +7,7 @@ public class ConditionWait extends Thread {
 
     private Lock lock;
 
-    private Condition condition;
+    private Condition condition; //jdk层面的wait和notify
 
     public ConditionWait(Lock lock, Condition condition) {
         this.lock = lock;

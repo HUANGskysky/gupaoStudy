@@ -7,7 +7,7 @@ public class ConditionSignal extends Thread {
 
     private Lock lock;
 
-    private Condition condition;
+    private Condition condition; //jdk层面的wait和notify
 
     public ConditionSignal(Lock lock, Condition condition) {
         this.lock = lock;
@@ -16,16 +16,17 @@ public class ConditionSignal extends Thread {
 
     @Override
     public void run() {
-        lock.lock();
-        System.out.println("ConditionSingal 执行启动！");
-//        try {
-//            Thread.sleep(20000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-        condition.signal();
-        System.out.println("ConditionSignal 执行结束！");
-        lock.unlock();
+
+        try {
+            lock.lock();
+            System.out.println("ConditionSingal 执行启动！");
+            condition.signal();
+            System.out.println("ConditionSignal 执行结束！");
+
+        }finally {
+            lock.unlock();
+        }
+
     }
 
 }

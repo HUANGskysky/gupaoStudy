@@ -10,7 +10,7 @@ public class LockDemo {
     private static int count = 0;
 
     public static synchronized void incr(){//全局锁
-        lock.lock();//获取锁（CXQ和EntryList）
+        lock.lock();//获取锁（CXQ和EntryList -> CAS -> park -> unpark）
         count++;
         System.out.println("count="+count);
         lock.unlock();//释放锁

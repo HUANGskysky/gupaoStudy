@@ -7,7 +7,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ReadWriteLockDemo {
 
-    //共享锁：同时会有多个线程获取锁。
+    //共享锁：同时会有多个线程获取锁
+    //共享锁，读-读
+    //排他所，读-写，写-写
 
     private static Map<String, Object> cacheMap = new HashMap<String, Object>();
 
